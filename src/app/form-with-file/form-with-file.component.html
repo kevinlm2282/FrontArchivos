@@ -1,0 +1,23 @@
+<div class="form-data">
+    <div class="data">
+        <form [formGroup]="form">
+            <div class="form-group">
+              <label for="name">Nombre del producto</label>
+              <input type="text" class="form-control" id="name" placeholder="Nombre del producto" formControlName="name">
+            </div>
+            <div class="form-group">
+              <label for="cantidad">Cantidad</label>
+              <input type="number" class="form-control" id="cantidad" placeholder="Cantidad" formControlName="cantidad">
+            </div>
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="number" class="form-control" id="precio" placeholder="Precio" formControlName="precio">
+            </div>
+            <div class="form-group">
+                <label for="file" class="form-label">imagen</label>
+                <input class="form-control" id="file-input" type="file" formControlName="file" (change)="onFileSelected($event)">
+            </div>
+            <button type="submit" class="btn btn-primary" (click)="setValue()">Submit</button>
+         </form>
+    </div>
+</div>
