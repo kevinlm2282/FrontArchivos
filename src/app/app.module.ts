@@ -6,11 +6,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormWithFileComponent } from './form-with-file/form-with-file.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { TableComponent } from './table/table.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormWithFileComponent
+    FormWithFileComponent,
+    NavBarComponent,
+    TableComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

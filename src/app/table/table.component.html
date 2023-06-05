@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+    <table class="table">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">name</th>
+            <th scope="col">amount</th>
+            <th scope="col">price</th>
+            <th scope="col">image</th>
+            <th scope="col">acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of products">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.price}}</td>
+            <div class="imageTable">
+              <img src="{{item.image}}" alt="">
+            </div >
+            <td>
+              <div>
+                <button class="btn btn-primary" type="button">Editar</button>
+                <button class="btn btn-danger" type="button">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

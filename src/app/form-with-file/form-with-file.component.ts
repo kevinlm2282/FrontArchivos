@@ -13,10 +13,11 @@ export class FormWithFileComponent implements OnInit {
   public form:FormGroup;
   
   product: Product;  // Objeto para agrupar todos los datos recibidos por el formulario se encuentra en el models
-  formDataFile:FormData; //Un tipo de dato que recibe solo String y una para guardar archivos
+  formDataFile:FormData = new FormData(); //Un tipo de dato que recibe solo String y una para guardar archivos
   name:String = ''; // dato del form
   cantidad:number = 0; // dato del form
   precio:number = 0; // dato del form
+  file:File;
 
   constructor(private formData:FormBuilder, private service:ServiceService) { 
     // Se agrupa los datos del formulario y se los inicializa en vacio 
@@ -46,21 +47,24 @@ export class FormWithFileComponent implements OnInit {
     }
     // IMPORTANTE se conviente el objeto de tipo Product en un String usando JSON.stringify y se lo añade a al FormData con la
     // etiqueta ("data") ==> se busca con esas etiquetas
-    this.formDataFile.append("data",JSON.stringify(this.product));
-    // Se consume el endpoint y se registran los datos
-    this.service.postProduct(this.formDataFile).subscribe();
+      this.formDataFile.append("data",JSON.stringify(this.product));
+      // Se consume el endpoint y se registran los datos
+      this.service.postProduct(this.formDataFile).subscribe();
    }
 
   // Metodo para agarrar al archivo
   onFileSelected(event:any) {
     // Se logra obtener los datos del archivo seleccionado con un evento  se agarran varias imagenes
-    const file:File = event.target.files[0];
-    // Se valida si la imagen existe 
-    if (file) {
-        this.formDataFile = new FormData();
-    // Se añade el archivo con la etiqueta "file" 
-        this.formDataFile.append("file", file);
+    if (event.target.files[0] == null || event.target.files.length == 0) {
+      // this.formDataFile.append("file", "no_file");
+    } else {
+      this.file = event.target.files[0];
+      // Se valida si la imagen existe 
+      if (this.file) {
+      // Se añade el archivo con la etiqueta "file" 
+          this.formDataFile.append("file", this.file);
+      }
     }
-}
+  }
 
 }
