@@ -1,5 +1,5 @@
 .container{
-    margin-top: 40px;
+    margin-top: 10%;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -14,3 +14,29 @@
     width: 100%;
     height: 100%;
 }
+
+ngb-pagination ::ng-deep a {
+    color: black !important;
+  }
+  
+  ngb-pagination ::ng-deep .page-item.active .page-link {
+    border-color: black;
+    background-color: lightgrey;
+  }
+  
+  ngb-pagination ::ng-deep .page-item.active .page-link:focus, .page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem dimgrey;
+  }
+  
+  ngb-pagination ::ng-deep .page-link:not(:disabled):not(.disabled):active:focus {
+    box-shadow: 0 0 0 0.1rem dimgrey;
+  }
+
+  .footer{
+    display: flex;
+  }
+
+  .form-select{
+    width: 70px;
+    height: 40px;
+  }

@@ -49,7 +49,8 @@ export class FormWithFileComponent implements OnInit {
     // etiqueta ("data") ==> se busca con esas etiquetas
       this.formDataFile.append("data",JSON.stringify(this.product));
       // Se consume el endpoint y se registran los datos
-      this.service.postProduct(this.formDataFile).subscribe();
+      // this.service.postProduct(this.formDataFile).subscribe();
+      this.clear()
    }
 
   // Metodo para agarrar al archivo
@@ -65,6 +66,15 @@ export class FormWithFileComponent implements OnInit {
           this.formDataFile.append("file", this.file);
       }
     }
+  }
+
+  clear():void{
+    this.form = this.formData.group({
+      name:'',
+      cantidad: '',
+      precio: '',
+      file: ''
+    });
   }
 
 }

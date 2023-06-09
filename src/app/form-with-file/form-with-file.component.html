@@ -1,9 +1,9 @@
 <app-nav-bar></app-nav-bar>
 <div class="form-data">
     <div class="data">
-        <form [formGroup]="form">
+        <form class="needs-validation" [formGroup]="form">
             <div class="form-group">
-              <label for="name">Nombre del producto</label>
+              <label for="name" class="form-label">Nombre del producto</label>
               <input type="text" class="form-control" id="name" placeholder="Nombre del producto" formControlName="name">
             </div>
             <div class="form-group">
